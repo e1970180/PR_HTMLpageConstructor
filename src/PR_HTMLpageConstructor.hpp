@@ -1,6 +1,6 @@
 #pragma once
 
-#include "PR_HTMLhtmlsTemplates.h"
+#include "PR_HTMLpageTemplates.h"
 
 typedef struct InputAttib {
 	String	txt;
@@ -15,13 +15,13 @@ typedef struct InputAttib {
 	String	maxlength;	
 } InputAttib_t;
 
-class HTMLhtmlConstructorClass {
+class HTMLpageConstructorClass {
 	
 	public:
 	
-		HTMLhtmlConstructorClass();
-		HTMLhtmlConstructorClass(const char* header);
-		HTMLhtmlConstructorClass(const String& header);
+		HTMLpageConstructorClass();
+		HTMLpageConstructorClass(const char* header);
+		HTMLpageConstructorClass(const String& header);
 		
 	
 		bool	init();
@@ -50,35 +50,35 @@ class HTMLhtmlConstructorClass {
 	
 };
 
-HTMLhtmlConstructorClass::HTMLhtmlConstructorClass() {
+HTMLpageConstructorClass::HTMLpageConstructorClass() {
 	init();
 } 
 
-HTMLhtmlConstructorClass::HTMLhtmlConstructorClass(const char* header) {
+HTMLpageConstructorClass::HTMLpageConstructorClass(const char* header) {
 	init();
 	html.replace(_headerSgn, header);
 }
 
-HTMLhtmlConstructorClass::HTMLhtmlConstructorClass(const String& header) {
+HTMLpageConstructorClass::HTMLpageConstructorClass(const String& header) {
 	init();
 	html.replace(_headerSgn, header);
 }
 
 //load template from EEPROM or file system or ever
-bool	HTMLhtmlConstructorClass::init() {
+bool	HTMLpageConstructorClass::init() {
 	html = FPSTR(F_PAGE_TEMPLATE);
 	_isFormAdded = false;
 	return true;
 }  
 
 
-bool	HTMLhtmlConstructorClass::addBodyText(const String& body) {
+bool	HTMLpageConstructorClass::addBodyText(const String& body) {
 
 	html.replace(_bodySgn, body + FPSTR(F_BODY_TEMPLATE) ); //insert into first section and adding one more section
 	return true;
 }	
 	
-bool	HTMLhtmlConstructorClass::addSubmitForm(const String& submitHandler) {
+bool	HTMLpageConstructorClass::addSubmitForm(const String& submitHandler) {
 	
 	if ( _isFormAdded ) return false; //form could be added once only
 	if ( submitHandler == "" ) return false;
@@ -96,7 +96,7 @@ bool	HTMLhtmlConstructorClass::addSubmitForm(const String& submitHandler) {
 }
 	
 	
-void	HTMLhtmlConstructorClass::addInput(const InputAttib_t& attr) {
+void	HTMLpageConstructorClass::addInput(const InputAttib_t& attr) {
 	
 	String	code;
 	code.reserve(300); //estimated length of generated code
@@ -130,7 +130,7 @@ void	HTMLhtmlConstructorClass::addInput(const InputAttib_t& attr) {
 }
 
 
-void	HTMLhtmlConstructorClass::addInputPort(const String& name, const String& text, const uint16_t portDefVal) {
+void	HTMLpageConstructorClass::addInputPort(const String& name, const String& text, const uint16_t portDefVal) {
 	
 	inputAttr.txt = text;
 	inputAttr.id = "" ;
@@ -149,7 +149,7 @@ void	HTMLhtmlConstructorClass::addInputPort(const String& name, const String& te
 }
 
 
-void	HTMLhtmlConstructorClass::addInputIP(const String& name, const String& text) {
+void	HTMLpageConstructorClass::addInputIP(const String& name, const String& text) {
 	
 	inputAttr.txt = text;
 	inputAttr.id = "" ;
@@ -165,7 +165,7 @@ void	HTMLhtmlConstructorClass::addInputIP(const String& name, const String& text
 	addInput(inputAttr);
 }
 
-void	HTMLhtmlConstructorClass::addInputURL(const String name) {
+void	HTMLpageConstructorClass::addInputURL(const String name) {
 	inputAttr.id = "" ;
 	inputAttr.name = name;
 	//inputAttr.type = "number";
@@ -182,7 +182,7 @@ void	HTMLhtmlConstructorClass::addInputURL(const String name) {
 
 
 
-void	HTMLhtmlConstructorClass::dbgPrint() {
+void	HTMLpageConstructorClass::dbgPrint() {
 	
 	Serial.println(html);
 }

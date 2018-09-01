@@ -6,8 +6,7 @@
 # Datatypes (KEYWORD1)
 #######################################
 
-HTMLhtmlConstructorClass	KEYWORD1
-InputAttib					KEYWORD1
+HTMLpageConstructorClass	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
@@ -23,6 +22,12 @@ addInputURL			KEYWORD2
 html				KEYWORD2
 inputAttr			KEYWORD2
 dbgPrint			KEYWORD2
+
+#######################################
+# Structures (KEYWORD3)
+#######################################
+
+InputAttib				KEYWORD3
 		
 ######################################
 # Constants (LITERAL1)
