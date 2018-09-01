@@ -1,0 +1,30 @@
+#######################################
+# Syntax Coloring Map
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+HTMLhtmlConstructorClass	KEYWORD1
+InputAttib					KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+init				KEYWORD2	
+addBodyText			KEYWORD2	
+addSubmitForm		KEYWORD2	
+addInput			KEYWORD2	
+addInputPort		KEYWORD2	
+addInputIP			KEYWORD2
+addInputURL			KEYWORD2
+html				KEYWORD2
+inputAttr			KEYWORD2
+dbgPrint			KEYWORD2
+		
+######################################
+# Constants (LITERAL1)
+######################################
+
